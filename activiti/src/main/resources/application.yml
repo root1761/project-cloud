@@ -1,0 +1,42 @@
+server:
+  port: 9001
+#  servlet:
+#    context-path: /activiti
+spring:
+  application:
+    name: activiti
+  #数据源配置
+  datasource:
+    url: jdbc:mysql://localhost:3306/activity?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+
+  activiti:
+  #自动检查、部署流程定义文件
+    check-process-definitions: true
+  #自动更新数据库结构
+    database-schema-update: true
+  # asyncExecutorActivate是指activiti在流程引擎启动就激活AsyncExecutor,异步：true-开启（默认）、false-关闭
+    async-executor-activate: true
+    history-level: full
+    db-history-used: true
+  #流程定义文件存放目录,要具体到某个目录
+   # process-definition-location-prefix: classpath*:/bpmn/
+  #process-definition-location-suffixes: #流程文件格式
+  #  - **.bpmn20.xml
+  #  - **.bpmn
+#  activiti:
+#    check-process-definitions: true
+#    db-history-used: true
+#    database-schema-update: true
+
+project:
+  manifest:
+    file:
+      path: classpath:/default-project.json
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
