@@ -1,8 +1,10 @@
 server:
-  port: 9005
+  port: 9001
+  #servlet:
+  # context-path: /gdfw-qxgd
 spring:
   application:
-    name: gateway
+    name: seata
   cloud:
     alibaba:
       seata:
@@ -22,13 +24,10 @@ spring:
           - data-id: mybatis.yaml
             refresh: true
             group: DEFAULT_GROUP
-          - data-id: gateway-env.yaml
-            refresh: true
-#        prefix: gateway
+
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+#        prefix: qxgd
 #  profiles:
 #    active: env
-seata:
-  service:
-    grouplist:
-      default: 192.168.42.146:8091
-  tx-service-group: fsp_tx_group
+

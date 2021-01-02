@@ -1,4 +1,4 @@
-package com.lnsoft.gateway.swagger;
+package com.lnsoft.gateway.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

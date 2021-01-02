@@ -52,11 +52,11 @@ public class MybatisGenerator {
 
 
     public static void old() {
-        String[] tables = new String[]{"user"};
+        String[] tables = new String[]{"t_user"};
         //String[] table_prefixs = new String[]{"o_"};
 
-        String base_dir = "D:\\Git\\gdfw_qxgd\\src\\main\\";
-        String base_package = "com.lnsoft.qxgd";
+        String base_dir = "D:\\Git\\project-cloud\\seata\\src\\main\\";
+        String base_package = "com.lnsoft.seata";
 
      /*   String db_url = "jdbc:oracle:thin:@10.140.218.84:11521/pwdata";
         String db_user = "pwzt";

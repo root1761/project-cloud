@@ -22,6 +22,7 @@ import org.springframework.web.client.RestTemplate;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -42,7 +43,7 @@ private IUserService iUserService;
     private RestTemplate restTemplate;
     @GetMapping(value = "/getActivitiDefined",produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
     public void getActivitiDefined(HttpServletResponse response) throws IOException {
-        final List<User> list = iUserService.list();
+        final List<User> list = new ArrayList();
         Workbook workbook = ExcelExportUtil.exportExcel(new ExportParams("用户详情","用户"),
                 User .class, list);
         response.setContentType("application/ms-excel;charset=UTF-8");
@@ -50,7 +51,7 @@ private IUserService iUserService;
         workbook.write(response.getOutputStream());
     }
     @GetMapping("/test")
-    public String test(){
-        return "1111";
+    public Boolean test(){
+        return iUserService.insert();
     }
 }

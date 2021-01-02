@@ -1,9 +1,7 @@
-package com.lnsoft.qxgd.service;
+package com.lnsoft.gateway.service;
 
-import com.lnsoft.qxgd.model.User;
+import com.lnsoft.gateway.model.User;
 import com.baomidou.mybatisplus.extension.service.IService;
-
-import java.sql.Wrapper;
 
 /**
  * <p>
@@ -11,8 +9,8 @@ import java.sql.Wrapper;
  * </p>
  *
  * @author Louyp
- * @since 2020-11-23
+ * @since 2020-12-31
  */
 public interface IUserService extends IService<User> {
-    public Boolean insert();
+
 }

@@ -17,11 +17,16 @@ spring:
         file-extension: yaml
         namespace: public
         group: DEFAULT_GROUP
-        prefix: qxgd
-  profiles:
-    active: env
+        extension-configs:
+          - data-id: qxgd-env.yaml
+            refresh: true
+            group: DEFAULT_GROUP
+          - data-id: mybatis.yaml
+            refresh: true
+            group: DEFAULT_GROUP
 
-seata:
-  service:
-      grouplist:
-        default: 192.168.42.146:8091
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+#        prefix: qxgd
+#  profiles:
+#    active: env
