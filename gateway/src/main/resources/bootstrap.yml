@@ -27,8 +27,4 @@ spring:
 #        prefix: gateway
 #  profiles:
 #    active: env
-seata:
-  service:
-    grouplist:
-      default: 192.168.42.146:8091
-  tx-service-group: fsp_tx_group
+

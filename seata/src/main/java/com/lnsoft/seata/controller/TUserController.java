@@ -4,6 +4,8 @@ package com.lnsoft.seata.controller;
 import com.lnsoft.seata.model.TUser;
 import com.lnsoft.seata.service.ITUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -23,7 +25,7 @@ import java.util.UUID;
 public class TUserController {
     @Autowired
     private ITUserService itUserService;
-    @RequestMapping("/insert")
+    @GetMapping("/insert")
     public Boolean insert(){
         final TUser user = new TUser();
         user.setId(UUID.randomUUID().getMostSignificantBits() & Long.MAX_VALUE);
