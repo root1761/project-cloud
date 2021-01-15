@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="gateway" />
+        <module name="gdfw_qxgd" />
+        <module name="eureka" />
+        <module name="auth-service" />
+        <module name="activiti" />
+        <module name="seata" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="activiti" target="1.8" />
+      <module name="auth-service" target="1.8" />
+      <module name="eureka" target="1.8" />
+      <module name="gateway" target="1.8" />
+      <module name="gdfw_qxgd" target="1.8" />
+      <module name="project-cloud" target="1.5" />
+      <module name="seata" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="activiti" options="-parameters" />
+      <module name="auth-service" options="" />
+      <module name="eureka" options="-parameters" />
+      <module name="gateway" options="" />
+      <module name="gdfw_qxgd" options="" />
+      <module name="seata" options="" />
+    </option>
+  </component>
+</project>

@@ -13,7 +13,9 @@ import com.lnsoft.qxgd.service.IUserService;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -50,8 +52,14 @@ private IUserService iUserService;
         response.setHeader("Content-Disposition","attachment;filename="+ URLEncoder.encode("用户详情.xls","UTF-8"));
         workbook.write(response.getOutputStream());
     }
+    @PreAuthorize("hasAnyAuthority('ROLE_OTHER')")
     @GetMapping("/test")
     public Boolean test(){
         return iUserService.insert();
     }
+    @GetMapping("/user")
+    public String user(){
+        return "user";
+    }
+
 }

@@ -182,6 +182,7 @@
         </profile>
     </profiles>
     <modules>
+        <module>auth-service</module>
         <module>eureka</module>
         <module>gateway</module>
         <module>gdfw_qxgd</module>

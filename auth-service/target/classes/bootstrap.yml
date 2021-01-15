@@ -1,0 +1,47 @@
+server:
+  port: 9006
+spring:
+  application:
+    name: auth-server
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.42.146:8848
+      config:
+        server-addr: 192.168.42.146:8848
+        file-extension: yaml
+        namespace: public
+        group: DEFAULT_GROUP
+        extension-configs:
+          - data-id: qxgd-env.yaml
+            refresh: true
+            group: DEFAULT_GROUP
+          - data-id: mybatis.yaml
+            refresh: true
+            group: DEFAULT_GROUP
+  redis:
+    host: 192.168.42.146
+    port: 6379
+    database: 0
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 500
+        min-idle: 0
+#  security:
+#    oauth2:
+#      resourceserver:
+#        jwt:
+#          jwk-set-uri: localhost:9006/oauth/publicKey
+#        prefix: gateway
+#  profiles:
+#    active: env
+encrypt:
+  key-store:
+    location: classpath:oauth2.jks
+    secret: 123456
+    alias: oauth2
+    password: 123456
+redis:
+  expiraTime: 10000
