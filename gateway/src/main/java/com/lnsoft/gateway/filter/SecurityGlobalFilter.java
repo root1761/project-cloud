@@ -3,8 +3,13 @@ package com.lnsoft.gateway.filter;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
+import org.springframework.security.authentication.AuthenticationServiceException;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.oauth2.server.resource.InvalidBearerTokenException;
+import org.springframework.security.oauth2.server.resource.web.server.BearerTokenServerAuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
@@ -19,13 +24,14 @@ public class SecurityGlobalFilter implements GlobalFilter, Ordered {
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         SecurityContext ctx = SecurityContextHolder.getContext();
+        final Authentication authentication = ctx.getAuthentication();
+        System.out.println(authentication);
 
-        System.out.println(ctx);
         return chain.filter(exchange);
     }
 
 
-        @Override
+    @Override
     public int getOrder() {
         return 0;
     }

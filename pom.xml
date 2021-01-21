@@ -11,7 +11,7 @@
     <developers>
         <developer>
             <name>Louyp</name>
-            <email>Louyp@163.com</email>
+            <email>Louyp1761@163.com</email>
             <!--        <organizationUrl>http://www.roncoo.net</organizationUrl>
             -->
             <roles>
@@ -37,18 +37,25 @@
     </properties>
     <dependencyManagement>
         <dependencies>
+            <!--core-service-->
+            <dependency>
+                <groupId>com.lnsoft</groupId>
+                <artifactId>core-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!--gateway-->
             <dependency>
                 <groupId>com.lnsoft</groupId>
                 <artifactId>gateway</artifactId>
                 <version>${project.version}</version>
             </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-dependencies</artifactId>
-            <version>${spring-boot.version}</version>
-            <type>pom</type>
-            <scope>import</scope>
-        </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <dependency>
                 <groupId>io.seata</groupId>
                 <artifactId>seata-all</artifactId>
@@ -64,14 +71,14 @@
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
             </dependency>
-        <!--Spring cloud alibaba 2.2.1.RELEASE-->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-            <version>${spring-cloud-alibaba.version}</version>
-            <type>pom</type>
-            <scope>import</scope>
-        </dependency>
+            <!--Spring cloud alibaba 2.2.1.RELEASE-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <!--easypoi-->
             <dependency>
                 <groupId>cn.afterturn</groupId>
@@ -188,5 +195,6 @@
         <module>gdfw_qxgd</module>
         <module>activiti</module>
         <module>seata</module>
+        <module>core-service</module>
     </modules>
 </project>

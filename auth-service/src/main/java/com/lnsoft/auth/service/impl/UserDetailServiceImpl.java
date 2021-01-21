@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.lnsoft.auth.dao.TUserMapper;
+import com.lnsoft.auth.dao.UserMapper;
 import com.lnsoft.auth.model.TUser;
 import com.mysql.cj.protocol.x.MessageConstants;
 import lombok.extern.slf4j.Slf4j;
@@ -33,6 +34,8 @@ import java.util.List;
 @Service("userDetailsService")
 @Slf4j
 public class UserDetailServiceImpl implements UserDetailsService {
+    @Autowired
+    private UserMapper userMapper;
     @Autowired
     private PasswordEncoder passwordEncoder;
     @Autowired

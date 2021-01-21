@@ -29,6 +29,8 @@ spring:
         max-wait: -1
         max-idle: 500
         min-idle: 0
+    expira:
+      time: 10000
 #  security:
 #    oauth2:
 #      resourceserver:
@@ -43,5 +45,3 @@ encrypt:
     secret: 123456
     alias: oauth2
     password: 123456
-redis:
-  expiraTime: 10000

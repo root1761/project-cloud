@@ -51,7 +51,6 @@ public class ConsumerTokenEnhancer implements TokenEnhancer {
         if (!(token&&expire)) {
             throw new InvalidTokenException("Encoded token is inMemory failed");
         }
-        System.out.println(accessToken + "   " + authentication);
         return accessToken;
     }
 }

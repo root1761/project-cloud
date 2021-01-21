@@ -34,12 +34,12 @@ import java.util.List;
 /**
  * @author Louyp
  * @version 1.0
- * @data 2020/01/05 9:35
+ * @data 2021/01/05 9:35
  */
 @Configuration
 @EnableAuthorizationServer
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
-    @Value("${redis.expiraTime}")
+    @Value("${spring.redis.expira.time}")
     private Long expiraTime;
     @Autowired
     private KeyProperties keyProperties;
@@ -82,7 +82,6 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         TokenEnhancerChain enhancerChain=new TokenEnhancerChain();
         final List<TokenEnhancer> objects = Arrays.asList(jwtAccessTokenConverter(),consumerTokenEnhancer());
         enhancerChain.setTokenEnhancers(objects);
-        System.out.println(expiraTime);
         endpoints.tokenEnhancer(enhancerChain).accessTokenConverter(jwtAccessTokenConverter())
                 .authenticationManager(authenticationManager)/*认证管理器*/
                 .tokenStore(tokenStore)/*令牌存储*/
@@ -98,7 +97,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 }
     @Bean
     public TokenStore tokenStore() {
-        return new JwtTokenStore(jwtAccessTokenConverter());
+       // return new JwtTokenStore(jwtAccessTokenConverter());
+        return new RedisTokenStore(redisConnectionFactory);
     }
     @Bean
     public JwtAccessTokenConverter jwtAccessTokenConverter() {

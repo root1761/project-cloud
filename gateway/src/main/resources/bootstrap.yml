@@ -14,7 +14,7 @@ spring:
         group: DEFAULT_GROUP
         extension-configs:
           - data-id: qxgd-env.yaml
-            refresh: true
+            refresh: true #自动刷新
             group: DEFAULT_GROUP
           - data-id: mybatis.yaml
             refresh: true
@@ -34,6 +34,18 @@ spring:
       resourceserver:
         jwt:
           jwk-set-uri: http://localhost:9005/auth-server/oauth/publicKey
+  redis:
+    database: 0
+    port: 6379
+    host: 192.168.42.146
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 500
+        min-idle: 0
+    expira:
+      time: 10000
 #        prefix: gateway
 #  profiles:
 #    active: env

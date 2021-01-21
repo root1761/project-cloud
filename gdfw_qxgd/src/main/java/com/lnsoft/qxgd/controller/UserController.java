@@ -14,6 +14,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -54,7 +55,7 @@ private IUserService iUserService;
     }
     @PreAuthorize("hasAnyAuthority('ROLE_OTHER')")
     @GetMapping("/test")
-    public Boolean test(){
+    public Boolean test(OAuth2Authentication oAuth2Authentication){
         return iUserService.insert();
     }
     @GetMapping("/user")

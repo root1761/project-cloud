@@ -13,7 +13,6 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.token.TokenStore;
-import org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 import org.springframework.util.FileCopyUtils;
@@ -47,7 +46,9 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
 
-        http.authorizeRequests().antMatchers("/**/current/get","/**/oauth/**","/swagger-ui.html","/doc.html","/**/v2/api-docs/**","/error","/**/swagger-resources/**","/webjars/**").permitAll()
+        http.authorizeRequests()
+                .antMatchers("/**/current/get","/**/oauth/**","/swagger-ui.html","/doc.html","/**/v2/api-docs/**","/error","/**/swagger-resources/**","/webjars/**")
+                .permitAll()
                 .antMatchers("/**")
                 .hasAnyRole("ADMIN")
                 .anyRequest()
@@ -70,8 +71,6 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         converter.setVerifierKey(publicKey);
         return converter;
     }
-
-
 }
 
 
